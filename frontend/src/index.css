@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -6,21 +6,47 @@
   --chrono-primary: #FFB22C;
   --chrono-secondary: #854836;
   --chrono-text: #000000;
-  font-family: "Rubik", sans-serif;
+  --chrono-panel: #fffaf1;
+  --chrono-panel-border: #f0dfc3;
+  --chrono-nav-glass: rgba(255, 251, 244, 0.72);
+  --chrono-font-size: 15px;
+  --chrono-line-height: 1.5;
+  --chrono-letter-spacing: 0.01em;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 body {
   @apply m-0 min-h-screen text-[var(--chrono-text)] bg-[var(--chrono-bg)] overflow-x-hidden;
-  font-family: "Rubik", sans-serif;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: var(--chrono-font-size);
+  line-height: var(--chrono-line-height);
+  letter-spacing: var(--chrono-letter-spacing);
+  text-rendering: geometricPrecision;
+  background-image:
+    radial-gradient(circle at 12% 10%, rgba(255, 178, 44, 0.14), transparent 32%),
+    radial-gradient(circle at 88% 18%, rgba(133, 72, 54, 0.12), transparent 36%),
+    linear-gradient(180deg, #fcfaf5 0%, #f6f5f2 58%, #f4f4f4 100%);
 }
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-  @apply font-semibold text-[var(--chrono-text)];
+  @apply font-bold text-[var(--chrono-text)];
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+}
+
+p, li, label, blockquote {
+  line-height: 1.58;
+}
+
+input, select, textarea, button {
+  font-family: inherit;
 }
 
 button {
   @apply rounded px-4 py-2 font-medium transition-colors duration-200;
+  font-size: 0.85rem;
+  line-height: 1.3;
   background-color: var(--chrono-primary);
   color: var(--chrono-text);
 }
@@ -30,19 +56,19 @@ button:hover {
 
 /* Calendar heatmap color scale */
 .color-empty {
-  fill: #eeeeee;
+  fill: #c7c2b9;
 }
 .color-scale-1 {
-  fill: #FFB22C33; /* light orange */
+  fill: #ffcd72;
 }
 .color-scale-2 {
-  fill: #FFB22C77;
+  fill: #f8af33;
 }
 .color-scale-3 {
-  fill: #FFB22Caa;
+  fill: #e78f1a;
 }
 .color-scale-4 {
-  fill: #FFB22C;
+  fill: #c86a11;
 }
 
 /* Optional: improve tooltip appearance */
@@ -59,8 +85,9 @@ html {
 
 /* Shrink text size for month/week labels */
 .react-heatmap text {
-  font-size: 10px;
-  fill: #999; /* softer gray if needed */
+  font-size: 11px;
+  fill: #7f7467;
+  font-weight: 500;
 }
 
 /* Shrink cell height and spacing */
@@ -73,4 +100,130 @@ html {
   ry: 2;
   width: 10px !important;
   height: 10px !important;
+  transition: transform 0.18s ease, filter 0.18s ease, stroke 0.18s ease;
+  transform-origin: center;
+  transform-box: fill-box;
+  stroke-width: 0;
+}
+
+.react-calendar-heatmap rect:hover {
+  transform: scale(1.22) translateY(-0.5px);
+  filter: brightness(1.08);
+  stroke: rgba(79, 46, 28, 0.35);
+  stroke-width: 0.8;
+}
+
+.panel-card {
+  background: linear-gradient(140deg, rgba(255, 254, 250, 0.92), rgba(255, 246, 231, 0.82));
+  border: 1px solid var(--chrono-panel-border);
+  box-shadow:
+    0 16px 30px rgba(16, 24, 40, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+.panel-soft {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(214, 195, 166, 0.6);
+}
+
+.field-input {
+  @apply border rounded-lg px-2.5 py-2 text-sm w-full;
+  font-size: 0.83rem;
+  line-height: 1.35;
+  letter-spacing: 0.005em;
+  border-color: rgba(133, 72, 54, 0.18);
+  background: rgba(255, 255, 255, 0.88);
+}
+
+.field-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 178, 44, 0.35);
+  border-color: rgba(255, 178, 44, 0.9);
+}
+
+.action-btn {
+  @apply inline-flex items-center justify-center gap-1 rounded-lg px-2.5 py-1.5 text-sm font-medium;
+  font-size: 0.8rem;
+  letter-spacing: 0.01em;
+  background: var(--chrono-primary);
+  color: #16120b;
+}
+
+.action-btn:hover {
+  background: #e69e18;
+}
+
+.action-btn-secondary {
+  @apply inline-flex items-center justify-center gap-1 rounded-lg px-2.5 py-1.5 text-sm font-medium;
+  font-size: 0.8rem;
+  letter-spacing: 0.01em;
+  background: rgba(133, 72, 54, 0.12);
+  color: var(--chrono-secondary);
+}
+
+.action-btn-secondary:hover {
+  background: rgba(133, 72, 54, 0.2);
+}
+
+.action-btn-danger {
+  @apply inline-flex items-center justify-center gap-1 rounded-lg px-2.5 py-1.5 text-sm font-medium;
+  font-size: 0.8rem;
+  letter-spacing: 0.01em;
+  background: rgba(200, 43, 43, 0.12);
+  color: #b91c1c;
+}
+
+.action-btn-danger:hover {
+  background: rgba(200, 43, 43, 0.2);
+}
+
+.glass-nav-shell {
+  background: var(--chrono-nav-glass);
+  border: 2px solid rgba(133, 72, 54, 0.28);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.55),
+    0 12px 26px rgba(32, 24, 18, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(18px) saturate(165%);
+  -webkit-backdrop-filter: blur(18px) saturate(165%);
+}
+
+.glass-nav-link {
+  @apply px-2.5 py-1 text-sm font-medium rounded-full transition;
+  font-size: 0.79rem;
+  line-height: 1.2;
+  color: rgba(58, 38, 28, 0.85);
+}
+
+.glass-nav-link:hover {
+  background: rgba(255, 255, 255, 0.66);
+  color: var(--chrono-secondary);
+}
+
+.section-anchor {
+  scroll-margin-top: 110px;
+}
+
+.section-title {
+  font-size: 1.06rem;
+  line-height: 1.35;
+  font-weight: 700;
+  letter-spacing: 0.005em;
+}
+
+.rich-editor {
+  line-height: 1.58;
+  font-size: 0.86rem;
+}
+
+.rich-editor:empty::before {
+  content: attr(data-placeholder);
+  color: #9a9489;
+  pointer-events: none;
+}
+
+.rich-editor ul,
+.rich-editor ol {
+  margin: 0.4rem 0;
+  padding-left: 1.25rem;
 }

@@ -1,0 +1,64 @@
+{
+  "hash": "a1e79f12",
+  "configHash": "4fc243e4",
+  "lockfileHash": "3299021e",
+  "browserHash": "64f984a7",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "0cceec10",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "2b30253c",
+      "needsInterop": true
+    },
+    "@vercel/analytics/react": {
+      "src": "../../node_modules/@vercel/analytics/dist/react/index.mjs",
+      "file": "@vercel_analytics_react.js",
+      "fileHash": "80faabc8",
+      "needsInterop": false
+    },
+    "lucide-react": {
+      "src": "../../node_modules/lucide-react/dist/esm/lucide-react.js",
+      "file": "lucide-react.js",
+      "fileHash": "3d0d6d9d",
+      "needsInterop": false
+    },
+    "framer-motion": {
+      "src": "../../node_modules/framer-motion/dist/es/index.mjs",
+      "file": "framer-motion.js",
+      "fileHash": "6db8de78",
+      "needsInterop": false
+    },
+    "react-calendar-heatmap": {
+      "src": "../../node_modules/react-calendar-heatmap/dist/react-calendar-heatmap.esm.js",
+      "file": "react-calendar-heatmap.js",
+      "fileHash": "f4622371",
+      "needsInterop": false
+    },
+    "date-fns": {
+      "src": "../../node_modules/date-fns/index.js",
+      "file": "date-fns.js",
+      "fileHash": "a6af9b50",
+      "needsInterop": false
+    },
+    "react-tooltip": {
+      "src": "../../node_modules/react-tooltip/dist/react-tooltip.min.mjs",
+      "file": "react-tooltip.js",
+      "fileHash": "3d1953c0",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-VX2H6PUQ": {
+      "file": "chunk-VX2H6PUQ.js"
+    },
+    "chunk-G3PMV62Z": {
+      "file": "chunk-G3PMV62Z.js"
+    }
+  }
+}

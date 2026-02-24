@@ -10,9 +10,11 @@ export default function App() {
     <div className="min-h-screen flex flex-col bg-[var(--chrono-bg)] text-[var(--chrono-text)]">
       <Navbar />
 
-      <main className="flex-grow flex flex-col items-center px-4 py-8">
+      <main className="flex-grow w-full flex flex-col items-center px-4 py-8">
         <Dashboard />
-        <About />
+        <section id="about" className="section-anchor w-full">
+          <About />
+        </section>
       </main>
       <Analytics/>
       <Footer />

@@ -35,7 +35,7 @@ export default function BadgesPanel({ totalMinutes = 0, streak = 0 }) {
     },
     {
       id: "digger",
-      title: "Code Digger",
+      title: "Development Digger",
       description: "Log 500+ minutes total",
       icon: Medal,
     },
@@ -47,7 +47,7 @@ export default function BadgesPanel({ totalMinutes = 0, streak = 0 }) {
     },
     {
       id: "deep",
-      title: "Deep Coder",
+      title: "Deep Developer",
       description: "Log 2000+ minutes total",
       icon: Brain,
     },
@@ -79,14 +79,15 @@ export default function BadgesPanel({ totalMinutes = 0, streak = 0 }) {
 
   return (
     <div
-      className="bg-white rounded-xl shadow-md border border-neutral-200 p-6 mt-8 
+      className="w-full mx-auto bg-white rounded-xl shadow-md border border-neutral-200 p-6 mt-8 mb-8 
                  hover:shadow-[0_0_0_2px_var(--chrono-primary)] 
                  hover:shadow-[0_0_12px_2px_var(--chrono-primary)] 
                  transition duration-300"
     >
-      <h3 className="text-lg font-semibold text-[var(--chrono-secondary)] mb-4 text-center">
-        🏅 Achievements
-      </h3>
+      <div className="flex items-center justify-center gap-2 mb-4 text-[var(--chrono-secondary)]">
+        <Medal size={17} />
+        <h3 className="section-title">Achievements</h3>
+      </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {badgeData.map((badge, index) => (

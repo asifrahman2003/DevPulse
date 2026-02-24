@@ -1,10 +1,10 @@
-# CodeChrono – Your Daily Coding Session Logger
+# DevPulse – Your Daily Development Session Logger
 
-CodeChrono is a personal productivity app that helps you log your daily coding time, track progress, and stay consistent. It's designed for developers who want to build strong habits, stay motivated, and visualize their growth over time.
+DevPulse is a personal productivity app that helps you log your daily development time, track progress, and stay consistent. It's designed for developers who want to build strong habits, stay motivated, and visualize their growth over time.
 
 ## Live Demo
 
-![alt text](CodeChronoDemo.png)
+![alt text](DevPulseDemo.png)
 
 [https://code-chrono.vercel.app/](https://code-chrono.vercel.app/)
 
@@ -12,12 +12,18 @@ CodeChrono is a personal productivity app that helps you log your daily coding t
 
 ## Features
 
-- Track daily coding time in minutes
-- Heatmap calendar visualization of coding streaks
+- Track daily development time in minutes
+- Full session management (add, edit, delete)
+- Project and tag tracking per session
+- Pomodoro mode with configurable work/break/cycles
+- Heatmap calendar visualization of development streaks
 - Daily goal setting and progress tracking
 - Write and save session notes per day
 - Badge unlock system for hitting milestones
-- Weekly and monthly coding summaries
+- Weekly and monthly development summaries
+- Smart analytics (rolling averages, goal hit rate, best hour/day, streak risk)
+- Reminder system with browser notifications
+- Cloud auth + cloud backup/restore support (Supabase)
 - Export data as JSON or CSV
 - Motivational quotes that rotate with time
 - Modern, responsive UI with animations
@@ -41,7 +47,7 @@ CodeChrono is a personal productivity app that helps you log your daily coding t
 To run this project locally:
 
 ```
-git clone https://github.com/asifrahman2003/CodeChrono
+git clone https://github.com/asifrahman2003/DevPulse
 cd frontend
 npm install
 npm run dev
@@ -51,16 +57,34 @@ npm run dev
 ```
 frontend/
 ├── components/         // Reusable UI components
-├── utils/              // LocalStorage helpers and date utilities
+├── utils/              // Storage, analytics, reminders, and cloud helpers
 ├── App.jsx             // Main App layout
 ├── index.css           // Tailwind base styles
 └── main.jsx            // App entry point
 ```
 
+## Cloud Sync Setup (Optional)
+Set these environment variables in `frontend/.env`:
+
+```
+VITE_SUPABASE_URL=your_supabase_project_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+
+Create a `user_data` table in Supabase:
+
+```
+create table if not exists public.user_data (
+  user_id uuid primary key,
+  payload jsonb not null,
+  updated_at timestamptz not null default now()
+);
+```
+
+With RLS enabled, allow users to read/write only their own row (where `auth.uid() = user_id`).
+
 ## Future Improvements
-- cloud sync and authentication
 - PWA support for mobile use
-- Built-in Pomodoro timer
 - User leaderboard
 - Browser extension integration
 

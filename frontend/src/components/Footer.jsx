@@ -10,7 +10,7 @@ export default function Footer() {
       transition={{ duration: 0.6, ease: 'easeOut' }}
       className="w-full text-center text-sm text-[var(--chrono-secondary)] py-6 mt-auto border-t border-neutral-200 px-4"
     >
-      <p className="font-semibold">&copy; {new Date().getFullYear()} CodeChrono</p>
+      <p className="font-semibold">&copy; {new Date().getFullYear()} DevPulse</p>
 
       <p className="mt-1">
         Built with <span role="img" aria-label="love">❤️</span> and Focus by{' '}
@@ -24,7 +24,7 @@ export default function Footer() {
         </a>
       </p>
       <div className="inline-block bg-[var(--chrono-primary)] text-white text-xs font-medium px-3 mt-2 py-1 rounded-full">
-          v1.0
+          v1.1
         </div>
     </motion.footer>
   );

@@ -1,6 +1,7 @@
+import { createElement } from "react";
 import { motion } from "framer-motion";
 
-export default function BadgeCard({ icon: Icon, title, description, unlocked }) {
+export default function BadgeCard({ icon, title, description, unlocked }) {
   return (
     <motion.div
       className={`flex items-center gap-4 border rounded-lg px-4 py-3 shadow-sm transition ${
@@ -13,7 +14,10 @@ export default function BadgeCard({ icon: Icon, title, description, unlocked }) 
       transition={{ duration: 0.4 }}
     >
       <div className="p-2.5 rounded-full bg-gray-200">
-        <Icon size={28} className={unlocked ? "text-green-600" : "text-gray-400"} />
+        {createElement(icon, {
+          size: 28,
+          className: unlocked ? "text-green-600" : "text-gray-400",
+        })}
       </div>
       <div>
         <h4 className="font-semibold text-sm">{title}</h4>

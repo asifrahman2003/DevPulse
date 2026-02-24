@@ -1,3 +1,4 @@
+import { createElement } from "react";
 import { motion } from "framer-motion";
 import { Info, Github, Linkedin, Globe } from "lucide-react";
 
@@ -29,24 +30,24 @@ export default function AboutSection() {
     >
       <div className="flex justify-center items-center gap-2 mb-2 text-[var(--chrono-primary)] mt-2">
         <Info size={18} />
-        <h3 className="text-lg font-bold">About CodeChrono</h3>
+        <h3 className="section-title">About DevPulse</h3>
       </div>
 
       <p className="text-sm leading-relaxed text-gray-700 px-4">
-  <strong>CodeChrono</strong> is your personal coding time logger that helps you build habits,
-  visualize progress, and stay motivated on your coding journey. Whether you're grinding LeetCode, learning a new
-  tech stack, or building consistently, CodeChrono tracks your daily coding minutes, unlocks badges,
+  <strong>DevPulse</strong> is your personal development time logger that helps you build habits,
+  visualize progress, and stay motivated on your development journey. Whether you're grinding LeetCode, learning a new
+  tech stack, or building consistently, DevPulse tracks your daily development minutes, unlocks badges,
   and celebrates streaks, because we strongly <strong>consistency builds mastery</strong>.
   <br /><br />
   Your progress is currently saved privately in your browser using <strong>localStorage</strong>, so your data stays safe
   on your device and loads instantly, <br /><strong>no login is required</strong>. In the future, we plan to add
   <strong> user accounts</strong>, so your data can sync across devices seamlessly.
   <br /><br />
-  Thank you for using <strong>CodeChrono</strong>. Keep grinding and stay committed to your personal goals! 
+  Thank you for using <strong>DevPulse</strong>. Keep grinding and stay committed to your personal goals! 
 </p>
 
       <div className="mt-6 flex justify-center gap-6 mb-2">
-        {iconLinks.map(({ icon: Icon, href, label }, i) => (
+        {iconLinks.map(({ icon, href, label }) => (
           <motion.a
             key={label}
             href={href}
@@ -57,7 +58,7 @@ export default function AboutSection() {
             className="text-gray-500 hover:text-[var(--chrono-primary)]"
             aria-label={label}
           >
-            <Icon size={20} />
+            {createElement(icon, { size: 20 })}
           </motion.a>
         ))}
       </div>
